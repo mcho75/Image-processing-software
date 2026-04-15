@@ -192,13 +192,13 @@ public class AppController {
     }
 
     public void mosaicBlur() {
-        MosaicDialog mosaicDialog = new MosaicDialog();
+        MosaicDialog mosaicDialog = new MosaicDialog(imageData);
         mosaicDialog.getDialogPane().getStylesheets().addAll(root.getStylesheets());
         Optional<ButtonType> result = mosaicDialog.showAndWait();
         ButtonBar.ButtonData popupResult = result.orElse(ButtonType.CANCEL).getButtonData();
 
         switch (popupResult) {
-            case ButtonBar.ButtonData.APPLY -> Effects.mosaic(imageData, mosaicDialog.getSeed(), mosaicDialog.getPoints());
+            case ButtonBar.ButtonData.APPLY -> Effects.mosaic(imageData, mosaicDialog.getSeed(), mosaicDialog.getPoints(), mosaicDialog.getLayer(), mosaicDialog.getFixedNumber());
             case ButtonBar.ButtonData.CANCEL_CLOSE -> {}
             default -> throw new RuntimeException("Popup result invalid : %s".formatted(popupResult.toString()));
         }

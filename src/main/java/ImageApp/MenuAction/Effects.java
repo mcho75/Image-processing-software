@@ -3,6 +3,7 @@ package ImageApp.MenuAction;
 import ImageApp.MenuAction.CustomEffects.MosaicBlur;
 import ImageApp.MenuAction.CustomEffects.SeamCarving;
 import ImageApp.data.ImageData;
+import ImageApp.data.Layer;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
 import javafx.scene.effect.ColorAdjust;
@@ -37,11 +38,11 @@ public class Effects {
         imageData.endTransaction();
     }
 
-    public static void mosaic(ImageData imageData, long seed, int nbPoints) {
+    public static void mosaic(ImageData imageData, long seed, int nbPoints, Layer mask, boolean fixed) {
         int width = (int) imageData.getCurrentLayer().getWidth();
         int height = (int) imageData.getCurrentLayer().getHeight();
 
-        MosaicBlur mosaicBlur = new MosaicBlur(seed, nbPoints, width, height);
+        MosaicBlur mosaicBlur = new MosaicBlur(seed, nbPoints, mask, fixed, width, height);
 
         // color each pixel based on its closest neighbor
         imageData.beginTransaction();

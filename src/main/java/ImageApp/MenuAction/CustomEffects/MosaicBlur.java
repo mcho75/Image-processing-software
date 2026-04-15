@@ -1,5 +1,11 @@
 package ImageApp.MenuAction.CustomEffects;
 
+import ImageApp.data.Layer;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.paint.Color;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
@@ -9,16 +15,58 @@ public class MosaicBlur {
     protected final int[][] cloud;
     protected final KdTree tree;
 
-    public MosaicBlur(long seed, int nbPoints, int width, int height) {
+    public MosaicBlur(long seed, int nbPoints, Layer mask, boolean fixed, int width, int height) {
+
         // generation of random points
-        cloud = new int[nbPoints][2];
-        Random x = new Random(seed);
-        Random y = new Random(x.nextInt());
-        for (int i = 0; i < nbPoints; i++) {
-            cloud[i][0] = x.nextInt(width);
-            cloud[i][1] = y.nextInt(height);
+        if (fixed) {
+            cloud = new int[nbPoints][2];
+            Random x = new Random(seed);
+            Random y = new Random(x.nextInt());
+            for (int i = 0; i < nbPoints; i++) {
+                cloud[i][0] = x.nextInt(width);
+                cloud[i][1] = y.nextInt(height);
+            }
         }
+        else {
+            PixelReader pr = mask.snapshot(new SnapshotParameters(), null).getPixelReader();
+            boolean[][] selected = new boolean[width][height];
+            int cpt = 0;
+            Random r = new Random(seed);
+            for (int i = 0; i < width; i++) {
+                for (int j = 0; j < height; j++) {
+                    int pixel = pr.getArgb(i, j);
+                    float red = (float)((pixel >> 16) & 0xff) / 256;
+                    float green = (float)((pixel >> 8) & 0xff) / 256;
+                    float blue = (float)(pixel & 0xff) / 256;
+                    float value = (float)(r.nextInt() % 256) / 256;
+                    selected[i][j] = pow(value, 10) > (red + green + blue) / 3;
+                    if (selected[i][j]) {
+                        cpt++;
+                    }
+                }
+            }
+            cloud = new int[cpt][2];
+            int k = 0;
+            for (int i = 0; i < width; i++) {
+                for (int j = 0; j < height; j++) {
+                    if (selected[i][j]) {
+                        cloud[k][0] = i;
+                        cloud[k][1] = j;
+                        k++;
+                    }
+                }
+            }
+        }
+
         tree = createRec(0, cloud.length, 0);
+    }
+
+    private float pow(float x, int n) {
+        float res = 1;
+        for (int i = 0; i < n; i++) {
+            res *= x;
+        }
+        return res;
     }
 
     /**

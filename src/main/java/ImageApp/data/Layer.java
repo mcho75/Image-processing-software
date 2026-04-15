@@ -71,6 +71,11 @@ public class Layer extends Canvas implements Serializable {
         }
     }
 
+    @Override
+    public String toString() {
+        return name.get();
+    }
+
     @Serial
     private void readObject(ObjectInputStream in) throws ClassNotFoundException, IOException {
         in.defaultReadObject();

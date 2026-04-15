@@ -12,10 +12,12 @@
 <DialogPane headerText="Mosaic" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
     <content>
         <GridPane>
-            <Label text="Seed" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="50"/>
-            <Label text="Number of points" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="50"/>
+            <Label fx:id="labelSeed" text="Seed" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="50"/>
+            <Label fx:id="labelPoints" text="Number of points" GridPane.rowIndex="2" GridPane.columnIndex="0" prefWidth="50"/>
             <TextField fx:id="fieldSeed" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="100" text="0"/>
-            <TextField fx:id="fieldPoints" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="100" text="100"/>
+            <TextField fx:id="fieldPoints" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="100" text="100"/>
+            <ChoiceBox fx:id="choiceBox" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" maxWidth="Infinity"/>
+            <ChoiceBox fx:id="choiceLayer" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="2" maxWidth="Infinity"/>
         </GridPane>
     </content>
     <ButtonType fx:constant="APPLY"/>

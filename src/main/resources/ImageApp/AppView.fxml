@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import ImageApp.ui.ToolsGrid?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
+          xmlns="http://javafx.com/javafx/17.0.12" fx:controller="ImageApp.AppController" >
+
+    <MenuBar>
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="New Project" onAction="#newProjectAction" accelerator="Shortcut+N"/>
+            <MenuItem mnemonicParsing="false" text="Open Project..." onAction="#openProjectAction" accelerator="Shortcut+O"/>
+            <MenuItem mnemonicParsing="false" text="Save" onAction="#saveAction" accelerator="Shortcut+S"/>
+            <MenuItem mnemonicParsing="false" text="Save as..." onAction="#saveAsAction" accelerator="Shortcut+Shift+S"/>
+            <MenuItem mnemonicParsing="false" text="Export as..." onAction="#exportImageAction" accelerator="Shortcut+E"/>
+            <MenuItem mnemonicParsing="false" text="Import Image..." onAction="#importImageAction" accelerator="Shortcut+I"/>
+            <MenuItem mnemonicParsing="false" text="Switch between dark/light theme" onAction="#switchTheme"/>
+            <MenuItem mnemonicParsing="false" text="Close" onAction="#closeAction" accelerator="Shortcut+C"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Undo" onAction="#undo" accelerator="Shortcut+Z"/>
+            <MenuItem mnemonicParsing="false" text="Redo" onAction="#redo" accelerator="Shortcut+Y"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Transformations">
+            <MenuItem mnemonicParsing="false" text="Resize" onAction="#resize" accelerator="Shortcut+R"/>
+            <Menu mnemonicParsing="false" text="Flip">
+                <MenuItem mnemonicParsing="false" text="Flip (horizontal)" onAction="#htransFlip"/>
+                <MenuItem mnemonicParsing="false" text="Flip (vertical)" onAction="#vtransFlip"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Rotate">
+                <MenuItem mnemonicParsing="false" text="Rotate (clockwise)" onAction="#rotateClockwise"/>
+                <MenuItem mnemonicParsing="false" text="Rotate (anti-clockwise)" onAction="#rotateAnti"/>
+                <MenuItem mnemonicParsing="false" text="Rotate..." onAction="#rotate"/>
+            </Menu>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Effects">
+            <MenuItem mnemonicParsing="false" text="Mosaic Blur" onAction="#mosaicBlur"/>
+            <MenuItem mnemonicParsing="false" text="Gaussian Blur" onAction="#gaussianBlur"/>
+            <MenuItem mnemonicParsing="false" text="Seam Carving" onAction="#seamCarving" />
+            <MenuItem mnemonicParsing="false" text="Greyscale" onAction="#greyScale"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About" onAction="#openAbout"/>
+        </Menu>
+    </MenuBar>
+
+    <SplitPane dividerPositions="0">
+        <VBox fx:id="editingBar">
+            <ToolsGrid fx:id="toolsGrid" alignment="CENTER"/>
+            <VBox fx:id="toolsProperties" minHeight="120" maxHeight="120"/>
+            <fx:include source="ui/ColorWheel.fxml" fx:id="colorWheel"/>
+            <fx:include source="ui/LayerSelection.fxml" fx:id="layerSelection"/>
+        </VBox>
+
+        <ScrollPane fx:id="viewArea">
+            <Pane fx:id="drawBounds">
+                <clip>
+                    <Rectangle fx:id="rectangleClip"/>
+                </clip>
+                <Pane fx:id="drawArea"/>
+            </Pane>
+        </ScrollPane>
+    </SplitPane>
+
+</VBox>

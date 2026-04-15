@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" />
+        <ColumnConstraints hgrow="NEVER" />
+    </columnConstraints>
+
+    <Label text="Tolerance" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <Slider fx:id="toleranceSlider" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <TextField fx:id="toleranceField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="35"/>
+    <Label text="Transparency" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <Slider fx:id="alphaSlider" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <TextField fx:id="alphaField" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="35"/>
+
+</GridPane>

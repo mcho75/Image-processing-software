@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ImageApp.ui.ColorWheelController">
+
+    <StackPane fx:id="colorPane" maxWidth="Infinity" minWidth="20">
+        <Rectangle fx:id="colorRect" fill="#ff0000ff" height="150"/>
+        <Rectangle fx:id="colorRect1" height="150">
+            <fill>
+                <LinearGradient cycleMethod="NO_CYCLE" endY="0">
+                    <stops>
+                        <Stop color="#ffffffff" />
+                        <Stop color="#ffffff00" offset="1" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Rectangle fx:id="colorRect2" height="150">
+            <fill>
+                <LinearGradient cycleMethod="NO_CYCLE" endX="0" endY="0" startY="1">
+                    <stops>
+                        <Stop color="#000000ff" />
+                        <Stop color="#00000000" offset="1"/>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Circle fx:id="colorCursor" fill="TRANSPARENT" radius="5" stroke="#c8c8c8"/>
+    </StackPane>
+
+    <StackPane fx:id="huePane" maxWidth="Infinity" minWidth="20">
+        <Rectangle fx:id="hueRect" height="20">
+            <fill>
+                <LinearGradient endY="0">
+                    <stops>
+                        <Stop color="#FF0000"/>       <!-- red -->
+                        <Stop offset="0.166667" color="#FFFF00"/>  <!-- yellow -->
+                        <Stop offset="0.333333" color="#00FF00"/>  <!-- green -->
+                        <Stop offset="0.5" color="#00FFFF"/>       <!-- cyan -->
+                        <Stop offset="0.666667" color="#0000FF"/>  <!-- blue -->
+                        <Stop offset="0.833333" color="#FF00FF"/>  <!-- magenta -->
+                        <Stop offset="1.0" color="#FF0000"/>       <!-- red -->
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+        <Line fx:id="hueCursor" stroke="#c8c8c8" endY="15" strokeWidth="3" />
+    </StackPane>
+</VBox>

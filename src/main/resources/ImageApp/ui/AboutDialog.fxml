@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane headerText="About" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <VBox prefHeight="400.0" prefWidth="600.0">
+            <Label wrapText="true">
+                Image Processing Application, by Marie, Owen and Vincent 2025©
+            </Label>
+            <Hyperlink text="https://github.com/mines-nancy-iss7ab/imageprocessingapp-marie_owen_vincent" underline="true" wrapText="true" />
+            <Label wrapText="true">
+                A java Application to edit images.
+                It has a multiple tools, including paint, eraser, color picker and zoom.
+                Classic transformations like flip, rotate and resize are supported.
+                Effects like gaussian blur, mosaic blur and seam carving are included as well.
+            </Label>
+        </VBox>
+    </content>
+    <ButtonType fx:constant="CLOSE"/>
+</DialogPane>

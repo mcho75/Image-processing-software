@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<DialogPane headerText="New project" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <VBox>
+
+            <GridPane maxWidth="Infinity">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <Label text="Width" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="50"/>
+                <Label text="Height" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="50"/>
+                <TextField fx:id="fieldWidth" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="100" text="500"/>
+                <TextField fx:id="fieldHeight" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="100" text="500"/>
+            </GridPane>
+
+            <Button fx:id="newProjectButton" text="New project" prefWidth="200"/>
+            <Button fx:id="openButton" text="Open project" prefWidth="200"/>
+            <Button fx:id="importButton" text="Import image" prefWidth="200"/>
+            <Button fx:id="cancelButton" text="Cancel" prefWidth="200"/>
+        </VBox>
+    </content>
+</DialogPane>

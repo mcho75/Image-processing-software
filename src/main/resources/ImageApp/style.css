@@ -1,0 +1,208 @@
+/* -------------------- Global variables -------------------- */
+
+.root {
+    -fx-background-color: -custom-secondary-color;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 12px;
+    -fx-text-fill: -custom-text-color;
+}
+
+/* -------------------- Global widgets -------------------- */
+
+.label {
+    -fx-text-fill: -custom-text-color;
+    -fx-padding: 5px;
+}
+
+.button {
+    -fx-background-color: -custom-primary-color;
+    -fx-text-fill: -custom-text-color;
+    -fx-background-insets: 2px;
+    -fx-border-insets: 2px;
+    -fx-border-color: -custom-primary-color;
+}
+
+.button:hover {
+    -fx-background-color: -custom-secondary-color;
+}
+
+.slider .track {
+    -fx-background-color: -custom-primary-color;
+    -fx-border-color: -custom-secondary-color;
+    -fx-border-radius: 10px;
+}
+
+.slider .thumb {
+    -fx-background-color: -custom-accent-color;
+    -fx-background-insets: 2px;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent -custom-accent-color transparent;
+    -fx-padding: 0px;
+    -fx-text-fill: -custom-text-color;
+    -fx-alignment: CENTER;
+}
+
+.text-field:focused {
+    -fx-background-color: -custom-secondary-color;
+}
+
+/* -------------------- Dialog boxes -------------------- */
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: -custom-primary-color;
+}
+
+.dialog-pane:header .header-panel .label {
+    -fx-font-size: 20px;
+}
+
+#checkBox .box {
+    -fx-background-color: -custom-primary-color;
+}
+
+#checkBox {
+    -fx-padding: 10px;
+}
+
+/* -------------------- MenuBar -------------------- */
+
+.menu-bar,
+.menu-bar .context-menu {
+    -fx-background-color: -custom-primary-color;
+}
+
+.menu-bar .label {
+    -fx-text-fill: -custom-text-color;
+}
+
+.menu-bar .menu,
+.menu-item:hover,
+.menu-item:focused {
+    -fx-background-color: transparent;
+}
+
+.menu-bar .menu:hover > .label,
+.menu-item:hover .label {
+    -fx-text-fill: -custom-accent-color;
+}
+
+/* -------------------- Editing bar -------------------- */
+
+#editingBar {
+    -fx-background-color: -custom-secondary-color;
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
+.split-pane {
+    -fx-box-border: transparent;
+}
+
+.split-pane > .split-pane-divider {
+    -fx-background-color: -custom-primary-color;
+    -fx-padding: 2px;
+}
+
+/* -------------------- Color Wheel -------------------- */
+
+#colorWheel {
+    -fx-padding: 20px 0px 20px 0px;
+    -fx-spacing: 10px;
+}
+
+/* -------------------- Tool buttons -------------------- */
+
+.toggle-button {
+    -fx-background-color: -custom-primary-color;
+    -fx-border-color: -custom-primary-color;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-background-insets: 2px;
+    -fx-border-insets: 2px;
+}
+
+.toggle-button:hover {
+    -fx-background-color: -custom-secondary-color;
+}
+
+.toggle-button:selected {
+    -fx-border-color: -custom-accent-color;
+    /* -fx-effect: dropshadow(three-pass-box, -custom-accent-color, 5, 0, 0, 0); */
+}
+
+#toolsProperties {
+    -fx-background-color: -custom-primary-color;
+    -fx-padding: 10px;
+}
+
+/* -------------------- Layer selection -------------------- */
+
+#layerSelection {
+    -fx-spacing: 10px;
+}
+
+.list-view {
+    -fx-background-color: -custom-primary-color;
+}
+
+.list-cell {
+    -fx-background-color: -custom-primary-color;
+    -fx-border-color: -custom-primary-color;
+}
+
+.list-cell:filled {
+    -fx-background-color: -custom-primary-color;
+    -fx-padding: 5px;
+    -fx-text-fill: -custom-text-color;
+}
+
+.list-cell:selected {
+    -fx-border-color: -custom-accent-color;
+}
+
+.list-cell:hover {
+    -fx-text-fill: -custom-accent-color;
+}
+
+.check-box .box {
+    -fx-background-color: -custom-secondary-color;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: -custom-accent-color;
+}
+
+.check-box {
+    -fx-text-fill: -custom-text-color;
+}
+
+.choice-box {
+    -fx-background-color: -custom-primary-color;
+    -fx-mark-color: -custom-accent-color;
+}
+
+.choice-box .label {
+    -fx-text-fill: -custom-text-color;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: -custom-secondary-color;
+}
+
+/* -------------------- Image viewport -------------------- */
+
+#viewArea {
+    -fx-background-color: -custom-primary-color;
+}
+
+#viewArea .viewport {
+    -fx-background-color: transparent;
+}
+
+#drawBounds {
+    -fx-background-image: url("grid.png");
+    -fx-background-repeat: repeat;
+}

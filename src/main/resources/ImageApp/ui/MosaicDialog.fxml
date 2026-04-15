@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.VBox?>
+
+<DialogPane headerText="Mosaic" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <content>
+        <GridPane>
+            <Label text="Seed" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="50"/>
+            <Label text="Number of points" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="50"/>
+            <TextField fx:id="fieldSeed" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="100" text="0"/>
+            <TextField fx:id="fieldPoints" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="100" text="100"/>
+        </GridPane>
+    </content>
+    <ButtonType fx:constant="APPLY"/>
+    <ButtonType fx:constant="CANCEL"/>
+</DialogPane>
